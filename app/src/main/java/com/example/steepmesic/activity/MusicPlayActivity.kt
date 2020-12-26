@@ -4,8 +4,11 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.os.Bundle
+import android.util.Log
 import com.example.steepmesic.R
+import com.example.steepmesic.view.RecordView
 import kotlinx.android.synthetic.main.activity_music_play.*
+import kotlin.concurrent.thread
 
 class MusicPlayActivity : BaseActivity() {
 
@@ -20,6 +23,16 @@ class MusicPlayActivity : BaseActivity() {
             setDisplayHomeAsUpEnabled(true)
         }
 
+        btn.setOnClickListener {
+            recordView.isPlaying = !recordView.isPlaying
+            thread {
+                while (recordView.isPlaying || recordView.needleRadiusCounter > RecordView.PAUSE_DEGREE) {
+                    recordView.invalidate()
+                }
+            }
+        }
+
+        
     }
 
 }
