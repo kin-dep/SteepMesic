@@ -5,20 +5,31 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SteepMesic">
-        <activity android:name=".activity.MusicPlayActivity"
-            android:theme="@style/MusicTheme">
+        android:theme="@style/Theme.SteepMesic"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".activity.PhoneLoginActivity"
+            android:theme="@style/MusicTheme" />
+        <activity
+            android:name=".activity.LoginGuideActivity"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.SearchActivity"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustPan" />
+        <activity
+            android:name=".activity.MusicListActivity"
+            android:theme="@style/MusicTheme" />
+        <activity
+            android:name=".activity.MusicPlayActivity"
+            android:theme="@style/MusicTheme"></activity>
     </application>
 
 </manifest>

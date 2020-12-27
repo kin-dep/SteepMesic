@@ -50,7 +50,7 @@ class RecordView(context: Context, attrs: AttributeSet)
     //图片剪裁
     private val clipPath = Path().apply { addCircle(0f, 0f, picRadius, Path.Direction.CW) }
     //图片
-    private val bm by lazy { BitmapFactory.decodeResource(resources, R.drawable.cover) }
+    var bm = BitmapFactory.decodeResource(resources, R.drawable.cover)
 
     var isPlaying = false
         set(value) {field = value}

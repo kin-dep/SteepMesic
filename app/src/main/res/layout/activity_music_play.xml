@@ -61,7 +61,8 @@
                 android:text="01:33"
                 />
 
-            <androidx.appcompat.widget.AppCompatSeekBar
+            <SeekBar
+                android:id="@+id/music_progressbar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -83,12 +84,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp">
 
-            <com.google.android.material.button.MaterialButton
+            <Button
                 android:id="@+id/btn_control"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/ic_single_cycle"
                 android:backgroundTint="@color/black"
+
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="30dp"
                 />
@@ -138,5 +140,15 @@
         </RelativeLayout>
 
     </LinearLayout>
+
+<!--    <Button-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:alpha="1"-->
+<!--        android:background="#FFFFFF"-->
+<!--        android:backgroundTint="#FFFFFF"-->
+<!--        android:foregroundTint="#FFFFFF"-->
+<!--        android:foregroundTintMode="src_in"-->
+<!--        app:strokeColor="#FFFFFF" />-->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
