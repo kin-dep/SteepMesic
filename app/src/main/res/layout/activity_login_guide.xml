@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#F44336"
+        android:background="#FFFFFF"
         />
 
     <ImageView
@@ -36,12 +36,13 @@
             android:id="@+id/btn_phone_login"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="#F44336"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="手机登录"
-            android:textColor="#F44336"
-            android:textSize="16dp" />
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            />
 
     </com.google.android.material.card.MaterialCardView>
 

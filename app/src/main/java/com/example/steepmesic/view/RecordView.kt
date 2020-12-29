@@ -18,16 +18,16 @@ class RecordView(context: Context, attrs: AttributeSet)
         const val needleWidth = 15f
         const val longConeWidth = 30f
         const val shortConeWidth = 50f
-        const val armColor = "#888888"
+        const val armColor = "#FFFFFF"
         //唱针旋转点
-        const val bigCircleRadius = 30f
-        const val bigCircleColor = "#C0C0C0"
+        const val bigCircleRadius = 40f
+        const val bigCircleColor = "#EEEEEE"
         const val smallCircleRadius = 15f
-        const val smallCircleColor = "#8A8A8A"
+        const val smallCircleColor = "#888888"
         const val needleRotateSpeed = 1
         //唱片
         const val picRadius = 200f //唱片半径
-        const val ringRadius = 100f //圆环半径
+        const val ringRadius = 150f //圆环半径
         const val ringColor = "#000000"
         const val discRotateSpeed = 1
         //起止角度
@@ -50,7 +50,7 @@ class RecordView(context: Context, attrs: AttributeSet)
     //图片剪裁
     private val clipPath = Path().apply { addCircle(0f, 0f, picRadius, Path.Direction.CW) }
     //图片
-    var bm = BitmapFactory.decodeResource(resources, R.drawable.cover)
+    var bm = BitmapFactory.decodeResource(resources, R.drawable.disc)
 
     var isPlaying = false
         set(value) {field = value}
@@ -84,7 +84,7 @@ class RecordView(context: Context, attrs: AttributeSet)
             // 两个重叠的圆形，唱针顶部的旋转点
             save()
             translate(xHalf, yOffset)
-            needlePaint.setStyle(Paint.Style.FILL);
+            needlePaint.setStyle(Paint.Style.FILL)
             needlePaint.setColor(Color.parseColor(bigCircleColor))
             drawCircle(0f, 0f, bigCircleRadius, needlePaint)
             needlePaint.setColor(Color.parseColor(smallCircleColor))

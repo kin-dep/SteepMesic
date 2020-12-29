@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.steepmesic.R
 import com.example.steepmesic.activity.MusicPlayActivity
 import com.example.steepmesic.pojo.ml.Song
+import com.example.steepmesic.service.MusicService
 import java.util.regex.Pattern
 
 /**
@@ -57,13 +58,25 @@ class SongPosterAdapter(val context: Context,
             musicArtistAlbumTv.text = spanArtistAlbum
             musicNameTv.text = spanMusicName
             itemView.setOnClickListener {
-                val intent = Intent(context, MusicPlayActivity::class.java)
+                /*val intent = Intent(context, MusicPlayActivity::class.java)
                 //传递歌曲播放列表(此列表视图)和选中位置
                 val musicIds = ArrayList<Int>()
                 for (song in songList) musicIds.add(song.id)
                 intent.putExtra("musicIds", musicIds)
                 intent.putExtra("pos", position)
-                context.startActivity(intent)
+                context.startActivity(intent)*/
+
+                //传递歌曲播放列表(此列表视图)和选中位置
+                val musicIds = ArrayList<Int>()
+                for (song in songList) musicIds.add(song.id)
+                val intent = Intent(context, MusicService::class.java).apply {
+                    putExtra("musicIds", musicIds)
+                    putExtra("pos", position)
+                    putExtra(MusicService.COMMAND, MusicService.COMMAND_LOAD)
+                }
+                //开启服务和播放的activity
+                context.startService(intent)
+                context.startActivity(Intent(context, MusicPlayActivity::class.java))
             }
         }
     }

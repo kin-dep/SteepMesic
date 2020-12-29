@@ -3,6 +3,7 @@
     package="com.example.steepmesic">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:allowBackup="true"
@@ -12,24 +13,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SteepMesic"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.PhoneLoginActivity"
+        <service
+            android:name=".service.MusicService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity
+            android:name=".activity.PhoneLoginActivity"
             android:theme="@style/MusicTheme" />
         <activity
             android:name=".activity.LoginGuideActivity"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.SearchActivity"
+        <activity
+            android:name=".activity.SearchActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustPan" />
         <activity
             android:name=".activity.MusicListActivity"
             android:theme="@style/MusicTheme" />
         <activity
             android:name=".activity.MusicPlayActivity"
-            android:theme="@style/MusicTheme"></activity>
+            android:theme="@style/MusicTheme" />
     </application>
 
 </manifest>

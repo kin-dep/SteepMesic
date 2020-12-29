@@ -2,6 +2,7 @@ package com.example.steepmesic.activity
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -42,7 +43,13 @@ class MusicListActivity : BaseActivity() {
         musicApi = NetUtil.create(MusicApi::class.java)
 
         //载入数据
+        music_refresher.setColorSchemeColors(Color.parseColor("#F44336"))
         fetchRecommendSongs()
+
+        //刷新监听
+        music_refresher.setOnRefreshListener {
+            refresh()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -62,6 +69,7 @@ class MusicListActivity : BaseActivity() {
 
     //获取每日推荐歌曲
     private fun fetchRecommendSongs() {
+        music_refresher.isRefreshing = true
         //取出cookie
         val cookie = getSharedPreferences("application", Context.MODE_PRIVATE)
                 .getString("cookie", null)
@@ -76,9 +84,12 @@ class MusicListActivity : BaseActivity() {
                 response.body()?.let {
                     recommendSongList.addAll(it.data.dailySongs)
                     adapter.notifyDataSetChanged()
+                    music_refresher.isRefreshing = false
                 }
             }
         })
     }
+
+    private fun refresh() = fetchRecommendSongs()
 
 }

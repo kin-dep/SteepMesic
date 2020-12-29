@@ -28,6 +28,7 @@ class PhoneLoginActivity : BaseActivity() {
         setSupportActionBar(phone_login_toolbar)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
+            setHomeAsUpIndicator(R.drawable.ic_back)
         }
 
         musicApi = NetUtil.create(MusicApi::class.java)

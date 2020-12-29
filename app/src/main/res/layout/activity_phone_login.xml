@@ -16,10 +16,10 @@
             android:id="@+id/phone_login_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFFFFF"
+            android:background="#F44336"
             android:fitsSystemWindows="true"
             app:title="手机号登录"
-            app:titleTextColor="@color/black">
+            app:titleTextColor="@color/white">
 
         </androidx.appcompat.widget.Toolbar>
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.MusicListActivity"
     android:fitsSystemWindows="true"
-    android:background="#DDDDDD">
+    android:background="#EFEFEF">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -17,9 +17,9 @@
             android:id="@+id/music_list_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:titleTextColor="@color/black"
+            app:titleTextColor="@color/white"
             android:fitsSystemWindows="true"
-            android:background="#EFEFEF"
+            android:background="#F44336"
             app:title="SteepMesic">
 
         </androidx.appcompat.widget.Toolbar>
@@ -46,6 +46,7 @@
 
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/music_refresher"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
